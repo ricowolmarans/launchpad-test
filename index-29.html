@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launchpad Studio — Website Design & Setup for Growing Businesses</title>
+<meta name="description" content="Professional websites for small and medium businesses in South Africa. Fixed pricing from R2,500, live in days, no hidden fees.">
+<link rel="canonical" href="https://launchpad-studio.co.za/">
+<meta property="og:title" content="Launchpad Studio — Website Design & Setup">
+<meta property="og:description" content="Professional websites for SMBs — fixed pricing from R2,500, built in days.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://launchpad-studio.co.za/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Launchpad Studio",
+  "description": "Website design and setup for small and medium businesses.",
+  "url": "https://launchpad-studio.co.za/",
+  "email": "enquiries@launchpad-studio.co.za",
+  "telephone": "+27714022203",
+  "priceRange": "R2,500 - R18,000",
+  "areaServed": "ZA"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F6F3;
+    --paper-2: #EFEEE9;
+    --ink: #111111;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --line: #E0DED6;
+    --ember: #E8542E;
+    --ember-dark: #C94322;
+    --dark: #0C0C0C;
+    --glass: rgba(255,255,255,0.72);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ——— NAV ——— */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,246,243,0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .logo {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.04em;
+  }
+  .logo span { color: var(--ember); }
+  .nav-links {
+    display: flex; gap: 28px; font-size: 0.9rem; font-weight: 500;
+  }
+  .nav-links a { opacity: 0.7; transition: opacity .2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--ink); color: #fff;
+    padding: 10px 18px; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600;
+    transition: transform .2s, background .2s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); background: #000; }
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+
+  /* ——— HERO (Orvante structure + Digital Experiences colour streak) ——— */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  /* Abstract colour streaks (from Digital Experiences) */
+  .hero-streaks {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .hero-streaks::before,
+  .hero-streaks::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 140%;
+    top: -20%;
+    right: -15%;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(232,84,46,0.18) 22%,
+      rgba(255,180,80,0.25) 38%,
+      rgba(255,100,120,0.15) 52%,
+      transparent 70%
+    );
+    filter: blur(40px);
+    transform: rotate(-12deg);
+    animation: streakDrift 18s ease-in-out infinite alternate;
+  }
+  .hero-streaks::after {
+    width: 55%;
+    right: 5%;
+    top: 10%;
+    background: linear-gradient(
+      125deg,
+      transparent 10%,
+      rgba(80,120,255,0.12) 35%,
+      rgba(232,84,46,0.14) 55%,
+      transparent 75%
+    );
+    filter: blur(50px);
+    animation-delay: -6s;
+  }
+  @keyframes streakDrift {
+    0% { transform: rotate(-12deg) translateY(0); }
+    100% { transform: rotate(-8deg) translateY(-3%); }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0 80px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--ember);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    max-width: 16ch;
+    margin-bottom: 28px;
+    font-variation-settings: "wdth" 100;
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ember);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+    max-width: 42ch;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+    font-weight: 450;
+    line-height: 1.55;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  }
+  .btn-ghost {
+    border: 1.5px solid var(--ink);
+    padding: 15px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background .2s, color .2s;
+  }
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat strong {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+  .hero-stat span {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* ——— SECTION COMMON ——— */
+  section { padding: 96px 0; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    max-width: 18ch;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin-bottom: 48px;
+  }
+
+  /* ——— PRICING ——— */
+  #pricing {
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .plan-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .plan-tab {
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--ink-soft);
+    transition: all .2s;
+  }
+  .plan-tab.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .plan-tab:hover:not(.active) {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .plan-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .plan-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+  }
+  .plan-card.featured {
+    background: var(--dark);
+    color: #fff;
+    border-color: var(--dark);
+  }
+  .plan-card.featured .plan-desc,
+  .plan-card.featured .plan-feature {
+    color: rgba(255,255,255,0.72);
+  }
+  .plan-card.featured .plan-feature::before {
+    background: var(--ember);
+  }
+
+  .plan-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 10px;
+  }
+  .plan-price {
+    font-family: 'Archivo', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 4px;
+  }
+  .plan-price span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.55;
+    letter-spacing: 0;
+  }
+  .plan-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.45;
+  }
+  .plan-features {
+    list-style: none;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .plan-feature {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--ink-soft);
+  }
+  .plan-feature::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.55em;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .plan-more {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .plan-btn {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1.5px solid currentColor;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background .2s, color .2s;
+  }
+  .plan-card:not(.featured) .plan-btn:hover {
+    background: var(--ink);
+    color: #fff;
+  }
+  .plan-card.featured .plan-btn {
+    background: var(--ember);
+    border-color: var(--ember);
+    color: #fff;
+  }
+  .plan-card.featured .plan-btn:hover {
+    background: var(--ember-dark);
+    border-color: var(--ember-dark);
+  }
+
+  /* ——— WHY US ——— */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 700px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+  .compare-col {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 28px;
+    background: #fff;
+  }
+  .compare-col.us {
+    background: var(--dark);
+    color: #fff;
+    border-color: var(--dark);
+  }
+  .compare-col h3 {
+    font-size: 1.35rem;
+    margin-bottom: 20px;
+  }
+  .compare-col ul {
+    list-style: none;
+  }
+  .compare-col li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .compare-col.us li {
+    border-bottom-color: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.85);
+  }
+  .compare-col li:last-child { border-bottom: none; }
+
+  /* ——— PROCESS ——— */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) {
+    .process-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .process-grid { grid-template-columns: 1fr; }
+  }
+  .process-step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .process-num {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ember);
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+  }
+  .process-step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+  .process-step p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ——— FINAL CTA ——— */
+  .final-cta {
+    background: var(--dark);
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 120%;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(232,84,46,0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .final-cta .wrap { position: relative; z-index: 2; }
+  .final-cta h2 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    margin-bottom: 16px;
+  }
+  .final-cta p {
+    font-size: 1.1rem;
+    opacity: 0.75;
+    margin-bottom: 36px;
+    max-width: 36ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-cta .btn-primary {
+    background: var(--ember);
+  }
+  .final-cta .btn-primary:hover {
+    background: var(--ember-dark);
+    box-shadow: 0 10px 28px rgba(232,84,46,0.35);
+  }
+
+  /* ——— CONTACT ——— */
+  #contact {
+    padding: 80px 0 100px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  .contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .contact-info p {
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.95rem;
+  }
+  .contact-detail a {
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .contact-detail a:hover {
+    border-bottom-color: var(--ink);
+  }
+
+  .contact-form {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field.full { grid-column: 1 / -1; }
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  input, textarea, select {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    transition: border-color .2s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  .form-submit {
+    margin-top: 8px;
+    width: 100%;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+  .form-submit:hover {
+    background: #000;
+    transform: translateY(-1px);
+  }
+
+  /* ——— FOOTER ——— */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer .logo { font-size: 1.1rem; color: var(--ink); }
+
+  /* ——— UTILS ——— */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Launchpad<span>.</span></a>
+    <div class="nav-links">
+      <a href="#pricing">Pricing</a>
+      <a href="#why">Why us</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#pricing" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<!-- HERO — Orvante structure + Digital Experiences streaks -->
+<header class="hero">
+  <div class="hero-streaks" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow">Now booking new builds</div>
+    <h1>Website design &amp; setup for <em>growing businesses</em>, done right.</h1>
+    <p class="hero-lead">
+      Fixed pricing. Live in days. No hidden fees. Professional sites for South African small and medium businesses that need to look sharp and convert.
+    </p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-primary">
+        View packages
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a href="#contact" class="btn-ghost">Talk to us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>From R2,500</strong>
+        <span>Once-off, fixed price</span>
+      </div>
+      <div class="hero-stat">
+        <strong>Days, not months</strong>
+        <span>Typical turnaround</span>
+      </div>
+      <div class="hero-stat">
+        <strong>No surprises</strong>
+        <span>Clear scope, clear cost</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">One price. Nothing hidden.</h2>
+    <p class="section-sub">Choose a new build or a redesign of your existing site. Every package includes domain registration for the first year where noted.</p>
+
+    <div class="plan-tabs" role="tablist">
+      <button class="plan-tab active" data-tab="new" role="tab" aria-selected="true">New websites</button>
+      <button class="plan-tab" data-tab="glow" role="tab" aria-selected="false">Glow-Up (redesign)</button>
+      <button class="plan-tab" data-tab="addons" role="tab" aria-selected="false">Add-ons</button>
+    </div>
+
+    <!-- NEW WEBSITES -->
+    <div class="pricing-grid" id="tab-new" role="tabpanel">
+      <article class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">R2,500 <span>once-off</span></div>
+        <p class="plan-desc">3-page static site</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">3-page static business website</li>
+          <li class="plan-feature">Mobile responsive, SSL included</li>
+          <li class="plan-feature">Hosting: xneelo Basic (~R99/mo, client-billed)</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Choose Starter</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">Starter Premium</div>
+        <div class="plan-price">R3,500 <span>once-off</span></div>
+        <p class="plan-desc">Up to 4 pages</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">4-page static business website</li>
+          <li class="plan-feature">Mobile responsive, SSL included</li>
+          <li class="plan-feature">Hosting: xneelo Basic (~R99/mo, client-billed)</li>
+        </ul>
+        <div class="plan-more">+ 1 more included</div>
+        <a href="#contact" class="plan-btn">Choose Starter Premium</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">Business</div>
+        <div class="plan-price">R5,500 <span>once-off</span></div>
+        <p class="plan-desc">Up to 6 pages</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">Up to 6-page custom website</li>
+          <li class="plan-feature">Contact form + WhatsApp integration</li>
+          <li class="plan-feature">Professional email — no limit on accounts</li>
+        </ul>
+        <div class="plan-more">+ 1 more included</div>
+        <a href="#contact" class="plan-btn">Choose Business</a>
+      </article>
+
+      <article class="plan-card featured">
+        <div class="plan-name">Growth</div>
+        <div class="plan-price">R7,000 <span>once-off</span></div>
+        <p class="plan-desc">Up to 8 pages</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">Up to 8-page custom website</li>
+          <li class="plan-feature">Contact form + WhatsApp integration</li>
+          <li class="plan-feature">Professional email — no limit on accounts</li>
+        </ul>
+        <div class="plan-more">+ 2 more included</div>
+        <a href="#contact" class="plan-btn">Choose Growth</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">R8,500 <span>once-off</span></div>
+        <p class="plan-desc">Up to 10 pages</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">Up to 10-page custom website</li>
+          <li class="plan-feature">Contact form + WhatsApp integration</li>
+          <li class="plan-feature">Professional email — no limit on accounts</li>
+        </ul>
+        <div class="plan-more">+ 3 more included</div>
+        <a href="#contact" class="plan-btn">Choose Pro</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">Scale</div>
+        <div class="plan-price">R11,000 <span>once-off</span></div>
+        <p class="plan-desc">Up to 15 pages with full SEO and analytics</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">Up to 15-page custom website</li>
+          <li class="plan-feature">Contact form + WhatsApp integration</li>
+          <li class="plan-feature">Professional email — no limit on accounts</li>
+        </ul>
+        <div class="plan-more">+ 5 more included</div>
+        <a href="#contact" class="plan-btn">Choose Scale</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">R18,000 <span>once-off</span></div>
+        <p class="plan-desc">For the big businesses</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Domain registration (1 year)</li>
+          <li class="plan-feature">Fully custom website (page count chosen by customer)</li>
+          <li class="plan-feature">Basic shop / e-commerce functionality</li>
+          <li class="plan-feature">Admin panel for content &amp; product management</li>
+        </ul>
+        <div class="plan-more">+ 7 more included</div>
+        <a href="#contact" class="plan-btn">Choose Enterprise</a>
+      </article>
+    </div>
+
+    <!-- GLOW-UP -->
+    <div class="pricing-grid hidden" id="tab-glow" role="tabpanel">
+      <article class="plan-card">
+        <div class="plan-name">Glow-Up Lite</div>
+        <div class="plan-price">R2,500 <span>once-off</span></div>
+        <p class="plan-desc">Redesign of your existing website: new look, same pages</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Fresh new design: colours, fonts and layout polish</li>
+          <li class="plan-feature">Same content, pages and URLs (SEO stays intact)</li>
+          <li class="plan-feature">Same platform and domain, no migration</li>
+          <li class="plan-feature">1 revision round</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Choose Glow-Up Lite</a>
+      </article>
+
+      <article class="plan-card featured">
+        <div class="plan-name">Glow-Up Standard</div>
+        <div class="plan-price">R3,500 <span>once-off</span></div>
+        <p class="plan-desc">Redesign of your existing website with a mobile and speed pass</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Fresh new design: colours, fonts and layout polish</li>
+          <li class="plan-feature">Same content, pages and URLs (SEO stays intact)</li>
+          <li class="plan-feature">Same platform and domain, no migration</li>
+          <li class="plan-feature">Mobile-responsive pass</li>
+        </ul>
+        <div class="plan-more">+ 2 more included</div>
+        <a href="#contact" class="plan-btn">Choose Glow-Up Standard</a>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-name">Glow-Up Plus</div>
+        <div class="plan-price">R4,800 <span>once-off</span></div>
+        <p class="plan-desc">Redesign of your existing website with mobile, speed and basic SEO tidy</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Fresh new design: colours, fonts and layout polish</li>
+          <li class="plan-feature">Same content, pages and URLs (SEO stays intact)</li>
+          <li class="plan-feature">Same platform and domain, no migration</li>
+          <li class="plan-feature">Mobile-responsive pass</li>
+        </ul>
+        <div class="plan-more">+ 3 more included</div>
+        <a href="#contact" class="plan-btn">Choose Glow-Up Plus</a>
+      </article>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="pricing-grid hidden" id="tab-addons" role="tabpanel">
+      <article class="plan-card">
+        <div class="plan-name">Brand Identity Starter</div>
+        <div class="plan-price">R1,800 <span>once-off</span></div>
+        <p class="plan-desc">Logo (2 concepts) · Brand colour palette &amp; fonts · Business card + letterhead template</p>
+        <ul class="plan-features">
+          <li class="plan-feature">2 logo concepts</li>
+          <li class="plan-feature">Brand colour palette &amp; font pairing</li>
+          <li class="plan-feature">Business card + letterhead template</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Add to build</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="wrap">
+    <div class="section-label">Why us</div>
+    <h2 class="section-title">Most agencies sell you a website.<br>We build you a result.</h2>
+    <div class="compare-grid" style="margin-top: 48px;">
+      <div class="compare-col">
+        <h3>Typical web agency</h3>
+        <ul>
+          <li>Open-ended quotes and scope creep</li>
+          <li>Months of back-and-forth</li>
+          <li>Design-first, conversion as an afterthought</li>
+          <li>Hidden hosting or “maintenance” fees</li>
+          <li>You own nothing clear</li>
+        </ul>
+      </div>
+      <div class="compare-col us">
+        <h3>Launchpad</h3>
+        <ul>
+          <li>Fixed once-off price — no surprises</li>
+          <li>Live in days, not months</li>
+          <li>Built for clarity and enquiries</li>
+          <li>Transparent hosting (client-billed)</li>
+          <li>You own the site and the domain</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">From brief to live site.</h2>
+    <p class="section-sub">A simple, transparent path so you always know what’s next.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Brief</h3>
+        <p>Tell us about your business, goals and preferred look. We clarify scope and package.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Design</h3>
+        <p>We design your pages with real content structure. You review and we refine.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Build</h3>
+        <p>We develop, connect forms / WhatsApp / email, and test on mobile and desktop.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Launch</h3>
+        <p>Domain, SSL, go-live. You get access and a clear handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="wrap">
+    <h2>Let’s get you online — properly.</h2>
+    <p>Pick a package or just send a message. We’ll reply with a clear next step.</p>
+    <a href="#contact" class="btn-primary">
+      Start a project
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Contact</div>
+        <h3>Have a question or ready to start?</h3>
+        <p>Tell us a bit about your business and which package you’re looking at. We’ll get back to you quickly.</p>
+        <div class="contact-detail">
+          <a href="mailto:enquiries@launchpad-studio.co.za">enquiries@launchpad-studio.co.za</a>
+          <a href="tel:+27714022203">+27 71 402 2203</a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="291deba8-6d08-465d-bf6a-48536407ecf9">
+        <input type="hidden" name="subject" value="New Launchpad Studio enquiry">
+        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@business.co.za">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+27 …">
+          </div>
+          <div class="field">
+            <label for="package">Interested in</label>
+            <select id="package" name="package">
+              <option value="">Select a package…</option>
+              <option>Starter — R2,500</option>
+              <option>Starter Premium — R3,500</option>
+              <option>Business — R5,500</option>
+              <option>Growth — R7,000</option>
+              <option>Pro — R8,500</option>
+              <option>Scale — R11,000</option>
+              <option>Enterprise — R18,000</option>
+              <option>Glow-Up Lite — R2,500</option>
+              <option>Glow-Up Standard — R3,500</option>
+              <option>Glow-Up Plus — R4,800</option>
+              <option>Brand Identity Starter — R1,800</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full" style="margin-bottom: 16px;">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your business and what you need…"></textarea>
+        </div>
+        <div class="form-status" id="contactStatus" aria-live="polite"></div>
+        <button type="submit" class="form-submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#" class="logo">Launchpad<span>.</span></a>
+    <div>© 2026 Launchpad Studio · South Africa</div>
+  </div>
+</footer>
+
+<script>
+  // Launchpad panel endpoints (same as live site)
+  const LAUNCHPAD_ENQUIRY_URL = "https://ingest.launchpad-studio.co.za/api/enquiry";
+
+  // Pricing tabs
+  const tabs = document.querySelectorAll('.plan-tab');
+  const panels = {
+    new: document.getElementById('tab-new'),
+    glow: document.getElementById('tab-glow'),
+    addons: document.getElementById('tab-addons')
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      Object.values(panels).forEach(p => p.classList.add('hidden'));
+      panels[tab.dataset.tab].classList.remove('hidden');
+    });
+  });
+
+  // Smooth scroll for same-page links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // Contact form → Web3Forms + Launchpad ingest panel
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactStatus');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = contactForm.querySelector('.form-submit');
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      contactStatus.textContent = '';
+      contactStatus.className = 'form-status';
+
+      const fd = new FormData(contactForm);
+
+      // Honeypot
+      if (fd.get('_hp')) {
+        contactStatus.textContent = "Message sent! We'll get back to you shortly.";
+        contactStatus.classList.add('success');
+        contactForm.reset();
+        btn.disabled = false;
+        btn.textContent = originalText;
+        return;
+      }
+
+      try {
+        // 1) Web3Forms (email notification)
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          contactStatus.textContent = "Message sent! We'll get back to you shortly.";
+          contactStatus.classList.add('success');
+
+          // 2) Also push into Launchpad admin panel enquiries
+          try {
+            const packageVal = fd.get('package') || '';
+            const messageVal = fd.get('message') || '';
+            const combinedMessage = packageVal
+              ? (messageVal ? `Package: ${packageVal}\n\n${messageVal}` : `Package: ${packageVal}`)
+              : messageVal;
+
+            const ingestRes = await fetch(LAUNCHPAD_ENQUIRY_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: fd.get('name') || '',
+                email: fd.get('email') || '',
+                phone: fd.get('phone') || '',
+                message: combinedMessage,
+              }),
+            });
+            if (!ingestRes.ok) {
+              console.error('Enquiry panel sync failed:', ingestRes.status, await ingestRes.text().catch(() => ''));
+            }
+          } catch (panelErr) {
+            console.error('Failed to push enquiry to Launchpad panel:', panelErr);
+          }
+
+          contactForm.reset();
+        } else {
+          contactStatus.textContent = 'Something went wrong. Please try again.';
+          contactStatus.classList.add('error');
+        }
+      } catch (err) {
+        contactStatus.textContent = 'Network error. Please try again.';
+        contactStatus.classList.add('error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  }
+</script>
+<style>
+  .form-status { font-size: 0.9rem; margin-bottom: 12px; min-height: 1.3em; }
+  .form-status.success { color: #2F5233; font-weight: 600; }
+  .form-status.error { color: var(--ember); font-weight: 600; }
+</style>
+</body>
+</html>
